@@ -1,0 +1,31 @@
+package com.prueba;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.prueba.modelo.Usuario;
+
+@SpringBootApplication
+public class PruebaApplication implements CommandLineRunner {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PruebaApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+		
+		Usuario us1 = new Usuario();
+		us1.setId("11");
+		us1.setNombre("Javier");
+		us1.setCorreo("fpera7019@ceuandalucia.es");
+		us1.setEdad("21");
+		
+		System.out.println("Hola");
+	}
+	
+	
+
+}
