@@ -11,5 +11,12 @@ public interface ClienteRepository extends JpaRepository<Cliente,Integer>{
 	// 1. Obtener lista clientes cuyo nombre contenga la cadena
 	List<Cliente> findByNombreContainingIgnoreCase(String nombre);
 	
+	// 2 
+	List<Cliente> findByNombreAndApellidos(String nombre,String apellido);
 	
+	// 3 
+	List<Cliente> findByOrderByApellidosAsc();
+	
+	// 4
+	long count();
 }
