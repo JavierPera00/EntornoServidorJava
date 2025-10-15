@@ -82,7 +82,7 @@ public class ClienteServiceImp implements ClienteServicio{
 	}
 	
 	@Override
-	public List<Cliente> findByClientesByCiudad(String ciudad){
-		return clienteRepository.findByClientesByCiudad(ciudad);
+	public List<Cliente> findByCiudad(String ciudad){
+		return clienteRepository.findByDireccionCiudad(ciudad);
 	}
 }

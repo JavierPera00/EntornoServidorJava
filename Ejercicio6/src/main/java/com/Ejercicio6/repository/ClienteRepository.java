@@ -15,6 +15,6 @@ public interface ClienteRepository extends JpaRepository<Cliente,Integer>{
 
 	List<Cliente> findByNombreStartingWithIgnoreCase(String letra);
 
-	List<Cliente> findByClientesByCiudad(String ciudad);
+	List<Cliente> findByDireccionCiudad(String ciudad);
 	
 }

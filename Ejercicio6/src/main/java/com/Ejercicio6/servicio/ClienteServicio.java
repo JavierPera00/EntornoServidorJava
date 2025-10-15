@@ -21,7 +21,7 @@ public interface ClienteServicio {
 
 	void findByNombreStartingWithIgnoreCase(String letra);
 
-	List<Cliente> findByClientesByCiudad(String ciudad);
+	List<Cliente> findByCiudad(String ciudad);
 		
 	}
 
