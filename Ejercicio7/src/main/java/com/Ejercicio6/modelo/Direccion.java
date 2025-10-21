@@ -53,7 +53,7 @@ public class Direccion {
 	}
 	@Override
 	public String toString() {
-		return "Direccion [id=" + id + ", calle=" + calle + ", ciudad=" + ciudad + ", cliente=" + cliente + "]";
+		return "Direccion [id = " + id + ", calle = " + calle + ", ciudad = " + ciudad + ", cliente=" + cliente + "]";
 	}
 	
 }
