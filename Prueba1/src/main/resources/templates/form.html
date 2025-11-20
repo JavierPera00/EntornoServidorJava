@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<h1>Formulario</h1>
+		<form th:action = "@{/form}" th:object="${usuario}" method="post">
+			<input type="text" th:field="*{nombre}"/>
+			<input type="text" th:field="*{edad}"/>
+			<button type="submit">Enviar</button>
+		</form>
+		
+</body>
+</html>

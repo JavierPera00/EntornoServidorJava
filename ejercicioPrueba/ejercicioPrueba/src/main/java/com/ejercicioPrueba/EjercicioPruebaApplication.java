@@ -1,15 +1,13 @@
-package com.Prueba1;
+package com.ejercicioPrueba;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Prueba1Application {
+public class EjercicioPruebaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Prueba1Application.class, args);
-		
-		
+		SpringApplication.run(EjercicioPruebaApplication.class, args);
 	}
 
 }
