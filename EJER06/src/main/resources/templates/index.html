@@ -6,22 +6,25 @@
 </head>
 <body>
 
-	<thead>
+
+	<table>
 		<tr>
 			<th>ID</th>
 			<th>Nombre</th>
 			<th>Ciudad</th>
 			<th>Acciones</th>
 		</tr>
-	</thead>
-	
-	<tbody>
 		<tr th:each="cliente : ${clientes}">
 			<td th:text = "${cliente.id}"></td>
 			<td th:text = "${cliente.nombre}"></td>
 			<td th:text = "${cliente.direccion.ciudad}"></td>
+			<td>
+				<a th:href="@{/ver/{id}(id=${cliente.id})}">Ver cliente</a>
+			</td>
 		</tr>
-	</tbody>
+	</table>
+	<a th:href="@{/agregar}">Agregar cliente</a>
 	
+	<a th:href="@{/provincia}">Buscar por provincia</a>		
 </body>
 </html>

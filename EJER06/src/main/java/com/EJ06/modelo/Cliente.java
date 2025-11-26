@@ -30,6 +30,7 @@ public class Cliente {
 		super();
 		this.nombre = nombre;
 		this.direccion = direccion;
+		
 	}
 	
 	public int getId() {

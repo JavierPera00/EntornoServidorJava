@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Detalle Cliente</h1>
+	<p>ID:<span th:text = "${cliente.id}"></span></p>
+	<p>Nombre:<span th:text = "${cliente.nombre}"></span></p>
+	<p>Ciudad:<span th:text = "${cliente.direccion.ciudad}"></span></p>
+	<a th:href="@{/}">Volver</a>	
+	
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Buscar Provincia</h1>
+	<form th:action="@{/provincia}" th:object="${cliente}" method="post">
+	    <label>Introduce la ciudad: </label>
+	    <input type="text" th:field="*{direccion.ciudad}" required><br>
+	    <button type="submit">Buscar</button>
+	</form>
+	<a th:href="@{/}">Volver</a>
+	
+	<div th:if="${clientes}">
+        <h2>Resultados</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Ciudad</th>
+                <th>Calle</th>
+            </tr>
+            <tr th:each="c : ${clientes}">
+                <td th:text="${c.id}"></td>
+                <td th:text="${c.nombre}"></td>
+                <td th:text="${c.direccion.ciudad}"></td>
+                <td th:text="${c.direccion.calle}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

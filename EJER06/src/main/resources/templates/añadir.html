@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Nuevo Cliente</title>
+</head>
+<body>
+	<h1>Nuevo Cliente</h1>
+
+	<form th:action="@{/}" th:object="${cliente}" method="post">
+
+	    <label >Nombre: </label>
+	    <input name="nombre" type="text" th:field="*{nombre}" required><br>
+	
+	    <label>Ciudad: </label>
+	    <input name="direccion.ciudad" type="text" th:field="*{direccion.ciudad}" required><br>
+	
+	    <label>Calle: </label>
+	    <input name="direccion.calle" type="text" th:field="*{direccion.calle}" required><br>
+	
+	    <button type="submit">Guardar</button>
+	</form>
+
+	<a th:href="@{/}">Volver</a>
+</body>
+</html>

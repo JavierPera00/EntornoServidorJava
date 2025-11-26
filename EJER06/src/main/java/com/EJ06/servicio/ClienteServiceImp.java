@@ -15,6 +15,7 @@ public class ClienteServiceImp implements ClienteServicio{
 	
 	@Autowired
 	private ClienteRepository clienteRepository;
+	@Autowired
 	private DireccionRepository direccionRepository;
 
 	@Override
