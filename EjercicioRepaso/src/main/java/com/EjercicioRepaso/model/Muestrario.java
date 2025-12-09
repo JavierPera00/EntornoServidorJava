@@ -27,9 +27,8 @@ public class Muestrario {
 	public Muestrario() {
 	}
 
-	public Muestrario(Long id, String nombre) {
+	public Muestrario(String nombre) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 	}
 

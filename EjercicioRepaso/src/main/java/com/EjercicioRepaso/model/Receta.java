@@ -36,12 +36,10 @@ public class Receta {
 	public Receta() {
 	}
 
-	public Receta(Long id, String nombre, Integer puntuacion, List<Ingrediente> ing) {
+	public Receta(String nombre, Integer puntuacion) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 		this.puntuacion = puntuacion;
-		this.ingredientes = ing;
 	}
 
 	public Long getId() {

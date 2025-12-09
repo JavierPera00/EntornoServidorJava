@@ -33,9 +33,8 @@ public class Ingrediente {
 		super();
 	}
 
-	public Ingrediente(Long id, String nombre, Integer calorias, List<Receta> rec) {
+	public Ingrediente(String nombre, Integer calorias) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 		this.calorias = calorias;
 		this.recetas = new ArrayList<>();

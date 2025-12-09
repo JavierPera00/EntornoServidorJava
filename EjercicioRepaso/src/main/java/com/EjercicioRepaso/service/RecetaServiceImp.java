@@ -2,6 +2,7 @@ package com.EjercicioRepaso.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,9 @@ public class RecetaServiceImp implements RecetaService {
 
 	@Autowired
 	private RecetaRepository recetaRepository;
+
+	@Autowired
+	private IngredienteRepository ingredienteRepository;
 
 	@Override
 	public Receta crearReceta(Receta r) {
@@ -51,38 +55,52 @@ public class RecetaServiceImp implements RecetaService {
 	}
 
 	@Override
-	public void asignarIngredientesAReceta(Long idReceta, List<Long> ingredienteId) {
-		Receta receta = buscarReceta(idReceta);
-		List<Ingrediente> ingredientes = new ArrayList<>();
-		if(receta != null) {
-			
+	public void asignarIngredientesAReceta(List<Ingrediente> ingredientes, Receta receta) {
+		for (Ingrediente ig : ingredientes) {
+
+			Ingrediente i = ingredienteRepository.findById(ig.getId()).orElse(null);
+
+			Receta r = recetaRepository.findById(receta.getId()).orElse(null);
+
+			if (i != null && r != null) {
+				r.getIngredientes().add(i);
+				i.getRecetas().add(r);
+				recetaRepository.save(r);
+			}
 		}
 	}
 
 	@Override
-	public void elimanarIngredienteReceta(Long idReceta, Long idIngrediente) {
-		Receta receta = buscarReceta(idReceta);
-		
+	public void elimanarIngredienteReceta(Receta receta, Ingrediente ingrediente) {
+		Receta r = recetaRepository.findById(receta.getId()).orElse(null);
+		Ingrediente i = ingredienteRepository.findById(ingrediente.getId()).orElse(null);
+
+		if (r != null || i != null) {
+			// Eliminar en ambos lados de la relación porque es bidireccional
+			r.getIngredientes().remove(i);
+			i.getRecetas().remove(r);
+
+			// Guardar cambios
+
+			ingredienteRepository.save(i);
+			recetaRepository.save(r);
+		}
 	}
 
 	/*
+	 * @Override public Receta recetaMayorPuntuacion() { List<Receta> recetas=
+	 * recetaRepository.findAll(); Integer puntuacion = null; Receta mayor = null;
+	 * for (Receta receta : recetas) { if(puntuacion == null ||
+	 * receta.getPuntuacion() > puntuacion) { puntuacion = receta.getPuntuacion();
+	 * mayor = receta; } } return mayor; }
+	 */
 	@Override
 	public Receta recetaMayorPuntuacion() {
-		List<Receta> recetas= recetaRepository.findAll();
-		Integer puntuacion = null;
-		Receta mayor = null;
-		for (Receta receta : recetas) {
-			if(puntuacion == null || receta.getPuntuacion() > puntuacion) {
-				puntuacion = receta.getPuntuacion();
-				mayor = receta;
-			}
-		}
-		return mayor;
-	}*/
-	@Override
-	public Receta recetaMayorPuntuacion() {
-		
-		return null;
+		return recetaRepository.findFirstByOrderByPuntuacionDesc();
 	}
 
+	@Override
+	public Optional<Receta> findById(Long id) {
+		return Optional.empty();
+	}
 }

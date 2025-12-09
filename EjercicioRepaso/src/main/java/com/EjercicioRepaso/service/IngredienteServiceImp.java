@@ -53,11 +53,16 @@ public class IngredienteServiceImp implements IngredienteService {
 		List<Ingrediente> todosIngredientes = ingredienteRepository.findAll();
 		List<Ingrediente> ingredientesCalorias = new ArrayList<>();
 		for (Ingrediente ingrediente : todosIngredientes) {
-			if(ingrediente.getCalorias() >= calorias) {
+			if (ingrediente.getCalorias() >= calorias) {
 				ingredientesCalorias.add(ingrediente);
 			}
 		}
 		return ingredientesCalorias;
+	}
+
+	// 7
+	public List<Ingrediente> obtenerIngredientesConMasCalorias(int caloria) {
+		return ingredienteRepository.findByCaloriasGreaterThan(caloria);
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.EjercicioRepaso.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.EjercicioRepaso.model.Muestrario;
 import com.EjercicioRepaso.model.Receta;
@@ -22,9 +23,11 @@ public interface MuestrarioService {
 	Muestrario actualizarMuestrario(Muestrario r);
 	
 	// Nuevos Metodos
-	void asignarRecetaMuestrario (Long recetaId, Long muestrarioId);
+	void asignarRecetaMuestrario (Receta receta, Muestrario muestrario);
 	
-	void eliminarRecetaDeMuestrario(Long muestrarioId,Long recetaId);
+	void eliminarRecetaDeMuestrario(Receta receta, Muestrario muestrario);
 	
 	List<Receta> recetasMuestrarioEIngredientes(Long muestrarioId);
+
+	Optional<Muestrario> findById(Long id);
 }

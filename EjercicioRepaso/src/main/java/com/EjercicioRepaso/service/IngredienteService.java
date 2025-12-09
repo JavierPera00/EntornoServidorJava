@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.EjercicioRepaso.model.Ingrediente;
 
-
-
 public interface IngredienteService {
 
 	// Crear Receta
@@ -22,7 +20,10 @@ public interface IngredienteService {
 
 	// Actualizar Receta
 	Ingrediente actualizarIngrediente(Ingrediente i);
-	
+
 	// Nuevos Metodos
-	List<Ingrediente> listaIngredienteXCalorias (Integer calorias);	
+	List<Ingrediente> listaIngredienteXCalorias(Integer calorias);
+
+	// 7
+	public List<Ingrediente> obtenerIngredientesConMasCalorias(int caloria);
 }

@@ -1,6 +1,7 @@
 package com.EjercicioRepaso.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,25 +47,47 @@ public class MuestrarioServiceImp implements MuestrarioService {
 	}
 
 	@Override
+	public Optional<Muestrario> findById(Long id) {
+		return Optional.empty();
+	}
+
+	@Override
 	public Muestrario actualizarMuestrario(Muestrario m) {
 		// TODO Auto-generated method stub
 		return this.muestrarioRepository.save(m);
 	}
 
 	@Override
-	public void asignarRecetaMuestrario(Long recetaId, Long muestrarioId) {
-		Muestrario muestra = muestrarioRepository.findById(muestrarioId).orElse(null);
-		Receta receta = recetaRepository.findById(recetaId).orElse(null);
-		if(muestra!=null && receta !=null) {
-			muestra.getRecetas().add(receta);
-			receta.setMuestrario(muestra);
-			muestrarioRepository.save(muestra);
+	public void asignarRecetaMuestrario(Receta receta, Muestrario muestrario) {
+		Muestrario m = muestrarioRepository.findById(muestrario.getId()).orElse(null);
+
+		Receta r = recetaRepository.findById(receta.getId()).orElse(null);
+
+		if (m != null && r != null) {
+			m.getRecetas().add(r);
+			r.setMuestrario(m);
+
+			recetaRepository.save(r);
+
+			muestrarioRepository.save(m);
 		}
 	}
 
 	@Override
-	public void eliminarRecetaDeMuestrario(Long muestrarioId, Long recetaId) {
-		// TODO Auto-generated method stub
+	public void eliminarRecetaDeMuestrario(Receta receta, Muestrario muestrario) {
+		Receta r = recetaRepository.findById(receta.getId()).orElse(null);
+		Muestrario m = muestrarioRepository.findById(muestrario.getId()).orElse(null);
+
+		if (r != null || m != null) {
+			// 1. Quitar la receta de la lista del muestrario
+			m.getRecetas().remove(r);
+
+			// 2. Quitar la referencia al muestrario en la receta
+			r.setMuestrario(null);
+
+			// 3. Guardar cambios (opcional si usas @Transactional)
+			muestrarioRepository.save(m);
+		}
 
 	}
 
