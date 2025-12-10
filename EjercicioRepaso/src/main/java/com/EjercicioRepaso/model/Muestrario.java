@@ -58,7 +58,7 @@ public class Muestrario {
 
 	@Override
 	public String toString() {
-		return "Muestrario [id=" + id + ", nombre=" + nombre + ", recetas=" + recetas + "]";
+		return "Muestrario [ id = " + id + ", nombre = " + nombre + " ]";
 	}
 
 }

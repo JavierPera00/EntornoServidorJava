@@ -4,15 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ej10.model.Empleado;
 import com.ej10.model.Oficina;
-import com.ej10.repository.EmpleadoRepository;
 import com.ej10.repository.OficinaRepository;
 
 import jakarta.transaction.Transactional;

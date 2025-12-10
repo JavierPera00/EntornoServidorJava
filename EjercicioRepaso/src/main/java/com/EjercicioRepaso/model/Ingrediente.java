@@ -6,11 +6,10 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
@@ -24,10 +23,8 @@ public class Ingrediente {
 	private String nombre;
 	@Column(name = "calorias")
 	private Integer calorias;
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "ingrediente_receta", joinColumns = {
-			@JoinColumn(name = "id_ingrediente") }, inverseJoinColumns = { @JoinColumn(name = "id_receta") })
-	private List<Receta> recetas;
+	@ManyToMany(mappedBy = "ingredientes", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	private List<Receta> recetas = new ArrayList<>();;
 
 	public Ingrediente() {
 		super();
@@ -37,7 +34,6 @@ public class Ingrediente {
 		super();
 		this.nombre = nombre;
 		this.calorias = calorias;
-		this.recetas = new ArrayList<>();
 	}
 
 	public Long getId() {
@@ -74,7 +70,7 @@ public class Ingrediente {
 
 	@Override
 	public String toString() {
-		return "Ingrediente [id=" + id + ", nombre=" + nombre + ", calorias=" + calorias + ", recetas=" + recetas + "]";
+		return "Ingrediente [ id = " + id + ", nombre = " + nombre + ", calorias = " + calorias + " ]";
 	}
 
 }

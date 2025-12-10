@@ -2,7 +2,6 @@ package com.EjercicioRepaso.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,7 +27,7 @@ public class Receta {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "receta_ingrediente", joinColumns = { @JoinColumn(name = "id_receta") }, inverseJoinColumns = {
 			@JoinColumn(name = "id_ingrediente") })
-	private List<Ingrediente> ingredientes;
+	private List<Ingrediente> ingredientes = new ArrayList<>();
 	@ManyToOne
 	@JoinColumn(name = "id_muestrario")
 	private Muestrario muestrario;
@@ -84,7 +83,6 @@ public class Receta {
 
 	@Override
 	public String toString() {
-		return "Receta [id=" + id + ", nombre=" + nombre + ", puntuacion=" + puntuacion + ", ingredientes="
-				+ ingredientes + ", muestrario=" + muestrario + "]";
+		return "Receta [id = " + id + ", nombre = " + nombre + ", puntuacion = " + puntuacion + " ]";
 	}
 }

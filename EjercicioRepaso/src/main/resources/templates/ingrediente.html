@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Lista de Ingredientes</h1>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Calorías</th>
+				<th>Editar</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="ing : ${listado}">
+				<td th:text="${ing.id}"></td>
+				<td th:text="${ing.nombre}"></td>
+				<td th:text="${ing.calorias}"></td>
+				<td><a th:href="@{'/ingredientes/editar/' + ${ing.id}}">
+						<button>Editar</button>
+				</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<br>
+	<a th:href="@{'/ingredientes/nuevo'}">
+		<button>Crear</button>
+	</a>
+	<br>
+	<br>
+	<a th:href="@{'/'}">
+		<button>Atrás</button>
+	</a>
+</body>
+</html>

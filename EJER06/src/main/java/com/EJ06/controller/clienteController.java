@@ -7,10 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.EJ06.modelo.Cliente;
-import com.EJ06.servicio.ClienteServiceImp;
 import com.EJ06.servicio.ClienteServicio;
 
 import org.springframework.ui.Model;

@@ -5,31 +5,8 @@
     <title>App Recetas</title>
 </head>
 <body>
-    <h1>🍳 App de Recetas</h1>
-    
-    <!-- Solo muestra esto si NO hay errores -->
-    <div th:if="${totalRecetas != null}">
-        <p>Total de recetas: <span th:text="${totalRecetas}">0</span></p>
-    </div>
-    
-    <div th:if="${totalIngredientes != null}">
-        <p>Total de ingredientes: <span th:text="${totalIngredientes}">0</span></p>
-    </div>
-    
-    <div th:if="${totalMuestrarios != null}">
-        <p>Total de muestrarios: <span th:text="${totalMuestrarios}">0</span></p>
-    </div>
-    
-    <h2>📋 Enlaces</h2>
-    <ul>
-        <li><a th:href="@{/recetas}">Ver recetas</a></li>
-        <li><a th:href="@{/ingredientes}">Ver ingredientes</a></li>
-        <li><a th:href="@{/muestrarios}">Ver muestrarios</a></li>
-    </ul>
-    
-    <!-- Esto evita el error de recetas.isEmpty() -->
-    <div th:if="${recetas != null}">
-        <p th:if="${recetas.isEmpty()}">No hay recetas</p>
-    </div>
+	<h1>Ingredientes</h1>
+	<a href = "/ingredientes">Ver</a>
+	<p th:text = ${recetaMayor}></p>
 </body>
 </html>

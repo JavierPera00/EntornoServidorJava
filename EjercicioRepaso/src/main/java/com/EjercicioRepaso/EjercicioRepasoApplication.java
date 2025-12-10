@@ -3,7 +3,7 @@ package com.EjercicioRepaso;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +15,7 @@ import com.EjercicioRepaso.model.Receta;
 import com.EjercicioRepaso.service.IngredienteService;
 
 @SpringBootApplication
-public class EjercicioRepasoApplication {
+public class EjercicioRepasoApplication implements CommandLineRunner{
 
 	public static void main(String[] args) {
 		SpringApplication.run(EjercicioRepasoApplication.class, args);
@@ -32,6 +32,7 @@ public class EjercicioRepasoApplication {
 
 	public void run(String... args) throws Exception {
 
+		System.out.println("APP");
 		// 1
 		Ingrediente i1 = new Ingrediente("Sal", 20);
 		Ingrediente i2 = new Ingrediente("Azúcar", 300);
@@ -50,7 +51,7 @@ public class EjercicioRepasoApplication {
 		// 2
 		MuestrarioService.asignarRecetaMuestrario(r1, m2);
 		MuestrarioService.asignarRecetaMuestrario(r2, m1);
-
+		System.out.println(m2);
 		// 3
 		List<Ingrediente> ingredientes = new ArrayList<>();
 		ingredientes.add(i1);
@@ -71,6 +72,8 @@ public class EjercicioRepasoApplication {
 
 		// 8
 		System.out.println(recetaService.recetaMayorPuntuacion());
+		
+		System.out.println("Fin");
 	}
 
 	// 4
