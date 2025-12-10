@@ -6,7 +6,6 @@
 </head>
 <body>
 	<h1>Editar Ingrediente</h1>
-
 	<form th:action="@{'/ingredientes/editar/' + ${ingrediente.id}}"
 		th:object="${ingrediente}" method="post">
 		<label>Nombre:</label> <input type="text" th:field="*{nombre}"
@@ -17,6 +16,5 @@
 			<button type="button">Cancelar</button>
 		</a>
 	</form>
-
 </body>
 </html>
