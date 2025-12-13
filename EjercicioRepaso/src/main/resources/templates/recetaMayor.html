@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- Mostrar mensaje si NO hay receta -->
+    <div th:if="${boleano}">No existe receta</div>
+    <!-- Mostrar receta si existe -->
+    <div th:if="${!boleano}">
+        <p><strong>Nombre:</strong> <span th:text="${receta.nombre}"></span></p>
+        <p><strong>Puntuación:</strong> <span th:text="${receta.puntuacion}"></span></p>
+        <p><strong>Muestrario:</strong> <span th:text="${receta.muestrario}"></span></p>
+        <p><strong>Ingredientes:</strong></p>
+		<ul>
+		    <li th:each="ing : ${receta.ingredientes}" th:text="${ing.nombre}"></li>
+		</ul>
+    </div>
+    <button type="sudmit"><a th:href="@{/ingredientes}">Atras</a></button>
+</body>
+</html>

@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>Ingredientes</h1>
-	<a href = "/ingredientes">Ver</a>
-	<p th:text = ${recetaMayor}></p>
+	<a th:href = "@{/ingredientes}">Ver</a><br>
+	<a th:href= "@{/consultas/mejor-receta}">Ver receta mayor</a>
 </body>
 </html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/buscarPorTitulo}" method="post"> <!-- TE REDIRIGE A DODNE QUIERES -->
+		<input type="text" id="texto" name="texto" placeholder="Ingresa título" /><!-- SUBMIT: Te MANDA A CONTROLLER -->
+		<button type="submit">Buscar</button>
+	</form>
+	<ol th:each="curso : ${lista}">
+		<li th:text="${curso.titulo}"></li>
+		<li th:text="${curso.codigo}"></li>
+		<li th:text="${curso.detalle.duracionHoras}"></li>
+		<li th:text="${curso.detalle.nivel}"></li>
+	</ol>	
+</body>
+</html>

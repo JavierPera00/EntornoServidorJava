@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/buscarPorInstructor}" method="post"> <!-- TE REDIRIGE A DODNE QUIERES -->
+		<input type="text" id="nombre" name="nombre" placeholder="Ingresa nombre instructor" /><!-- SUBMIT: Te MANDA A CONTROLLER -->
+		<button type="submit">Buscar</button>
+	</form>
+	<ol th:each="ins : ${lista1}">
+		<li th:text="${ins.titulo}"></li>
+		<li th:text="${ins.codigo}"></li>
+	</ol>	
+</body>
+</html>

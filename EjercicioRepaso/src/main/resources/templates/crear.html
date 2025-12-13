@@ -6,7 +6,13 @@
 </head>
 <body>
     <h1>Crear Ingrediente</h1>
-
-   
+	<form th:action="@{/ingredientes/nuevo}" method="post">
+		<input type ="text" id="nombre" name= "nombre" placeholder="nombre"/>
+		
+		<input type ="number" id="calorias" name="calorias" placeholder="calorias"/>
+		
+		<button type="submit">Guardar</button>
+	</form>   
+   <button type="submit" ><a th:href="@{/ingredientes}">Cancelar</a></button>
 </body>
 </html>

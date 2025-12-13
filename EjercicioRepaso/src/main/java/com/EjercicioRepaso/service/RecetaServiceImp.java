@@ -96,6 +96,8 @@ public class RecetaServiceImp implements RecetaService {
 	 */
 	@Override
 	public Receta recetaMayorPuntuacion() {
+		List<Receta> todas = recetaRepository.findAll();
+		todas.forEach(r -> System.out.println(r.getNombre() + " -> " + r.getPuntuacion()));
 		return recetaRepository.findFirstByOrderByPuntuacionDesc();
 	}
 

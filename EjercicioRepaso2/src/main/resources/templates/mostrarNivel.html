@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form th:action="@{/buscarPorNivel}" method="post"> <!-- TE REDIRIGE A DODNE QUIERES -->
+		<input type="text" id="nivel" name="nivel" placeholder="Ingresa nivel" /><!-- SUBMIT: Te MANDA A CONTROLLER -->
+		<button type="submit">Buscar</button>
+	</form>
+	<ol th:each="ins : ${lista1}">
+		<li th:text="${ins.nivel}"></li>
+		<li th:text="${ins.curso.titulo}"></li>
+		<li th:text="${ins.curso.codigo}"></li>
+	</ol>	
+
+</body>
+</html>

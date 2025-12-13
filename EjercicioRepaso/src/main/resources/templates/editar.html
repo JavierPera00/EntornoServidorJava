@@ -6,15 +6,11 @@
 </head>
 <body>
 	<h1>Editar Ingrediente</h1>
-	<form th:action="@{'/ingredientes/editar/' + ${ingrediente.id}}"
-		th:object="${ingrediente}" method="post">
-		<label>Nombre:</label> <input type="text" th:field="*{nombre}"
-			required><br> <br> <label>Calorías:</label> <input
-			type="number" th:field="*{calorias}" required><br> <br>
+	<form th:action="@{/ingredientes/editar/{id}(id=${ingrediente.id})}" method="post">
+		<input type="number" th:value="${ingrediente.calorias}" name="calorias" id="calorias" placeholder="Calorias"><br>
+		<input type="text" th:value="${ingrediente.nombre}" name="nombre" id="nombre" placeholder="Nombre"><br>
 		<button type="submit">Guardar</button>
-		<a th:href="@{/ingredientes}">
-			<button type="button">Cancelar</button>
-		</a>
+		<button type="button"><a th:href="@{/ingredientes}">Cancelar</a></button>
 	</form>
 </body>
 </html>
