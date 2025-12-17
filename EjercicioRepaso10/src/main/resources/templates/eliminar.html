@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <h1>Consultar empleado</h1>
+    <form th:action="@{/eliminarEmpleado}" method="post">
+        <input id="id" name="id" type="number" placeholder="Escribe el id">
+        <button type="submit">Eliminar</button>
+        <button type="submit"><a th:href="@{/}">Atras</a></button>
+    </form>
+</body>
+</html>

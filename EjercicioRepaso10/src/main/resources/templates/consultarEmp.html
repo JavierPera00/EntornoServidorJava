@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/consultarEmp}" method ="post">
+	
+		<input id="idEmp" name="idEmp" type="number" placeholder="Escribe el ID del Empleado"/><br>
+
+		<button type="submit">Buscar</button><br>
+		<button><a th:href="@{/}">Cancelar</a></button>
+	
+	</form>
+		<div th:if="${empleado != null}">
+		    <p th:text="${empleado.nombre}"></p>
+		    <p th:text="${empleado.puesto}"></p>
+		    <p th:text="${empleado.email}"></p>
+		</div>
+		
+		<table th:if="${empleado != null and empleado.idOficina != null}">
+		    <tr>
+		        <th>Ubicación</th>
+		        <th>Teléfono</th>
+		    </tr>
+		    <tr>
+		        <td th:text="${empleado.idOficina.ubicacion}"></td>
+		        <td th:text="${empleado.idOficina.telefono}"></td>
+		    </tr>
+		</table>
+</body>
+</html>

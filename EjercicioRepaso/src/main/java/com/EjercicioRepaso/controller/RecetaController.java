@@ -84,8 +84,4 @@ public class RecetaController {
 		return "recetaMayor";
 	}
 	
-
-	
-	
-	
 }
