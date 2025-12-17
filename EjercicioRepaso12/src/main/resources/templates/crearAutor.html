@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Crear Autor</h1>
+	<form th:action="@{/crearAutor}" method="post" th:object ="${autor}">
+		<input type="text" placeholder="Nombre" id="nombre" th:field="*{nombre}"name="nombre"> 
+		<button type="submit">Guardar</button>
+		<button type="submit" ><a th:href="@{/}">Atras</a></button>
+	</form>	
+</body>
+</html>

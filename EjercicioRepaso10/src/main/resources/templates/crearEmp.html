@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Formulario</h1>
+	<!-- public Empleado(String nombre, String puesto, String email, Oficina idOficina) -->
+	<form th:action="@{/crear}" method="post">
+	
+		<input id = "nombre" name = "nombre" type = "text" placeholder="Escribe el nombre"/><br>
+	
+		<input id = "puesto" name = "puesto" type = "text" placeholder="Escribe el puesto"/><br>
+		
+		<input id = "email" name = "email" type = "text" placeholder="Escribe el email"/><br>
+		
+		<button type="submit">Guardar</button>
+		
+		<button type="submit"><a th:href="@{/}">Cancelar</a></button>
+	</form>
+		
+</body>
+</html>

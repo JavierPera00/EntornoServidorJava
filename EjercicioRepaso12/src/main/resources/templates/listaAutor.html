@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Lista Autor</h1>
+	<tr th:each="autor : ${lista}">
+		<td th:text="${autor.nombre}"><br>
+	</tr>
+	<br>
+	<button type="submit" ><a th:href="@{/}">Atras</a></button>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Lista:</h1>
+	<ul>
+		<li th:each="ing : ${lista1}" th:text="${ing.nombre}"></li>
+	</ul>
+	<button type="submit"><a th:href="@{/}">Atras</a></button>
+</body>
+</html>

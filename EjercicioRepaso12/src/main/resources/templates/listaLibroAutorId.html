@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Lista Libro Autor Id</h1>
+	<form th:action="@{/listaLibroAutorId}" method="post">
+	    <input type="number" id="id" name="id" placeholder="Escribe un ID para Lista Libros">
+	    <button type="submit">Buscar</button>
+	    <button type="button"><a th:href="@{/}">Cancelar</a></button>
+	</form>
+	<ol th:if="${lista != null}" th:each="libro : ${lista}">
+	    <li th:text="${libro.titulo}"></li>
+	</ol>
+</body>
+</html>
