@@ -1,0 +1,15 @@
+<h1>Título Rick</h1>
+<button (click)="mostrarRick()">Botón</button>
+
+<div *ngIf="buleanoRick">
+
+    <div *ngFor="let p of (listaPersonajes$ | async)?.results">
+        <p>{{p.id}}</p>
+        <p>{{p.name}}</p>
+        <p>{{p.species}}</p>
+        <p>{{p.status}}</p>
+        <p><img [src]="p.image"></p>
+        <p>{{p.episode.length}}</p>
+    </div>
+
+</div>

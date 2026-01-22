@@ -1,0 +1,7 @@
+
+<ul *ngFor="let e of (listaEpisodios$ | async)?.results">
+    <li>{{e.id}}</li>
+    <li>{{e.name}}</li>
+    <li>{{e.episode}}</li>
+    <li>{{e.characters.length}}</li>
+</ul>
